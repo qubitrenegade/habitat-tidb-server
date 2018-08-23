@@ -3,11 +3,17 @@ pkg_origin=qbr
 pkg_version=2.0.3
 pkg_maintainer="QubitRenegade <qubitrenegade@gmail.com>"
 pkg_license=("MPL-2")
+# pkg_source=http://download.pingcap.org/tidb-v${pkg_version}-linux-amd64-unportable.tar.gz
+# pkg_shasum=be725a370345504ed9dc495ec3bec1876b099eedf29486afe2e3da61b2bea038
 pkg_source=http://download.pingcap.org/tidb-v${pkg_version}-linux-amd64.tar.gz
-pkg_shasum=be725a370345504ed9dc495ec3bec1876b099eedf29486afe2e3da61b2bea038
+pkg_shasum=5a5d153f3df4cb286de92619edae0f7de910f8f7c29a81385d2790ad13b5bb17
 pkg_deps=(core/bash core/glibc)
 pkg_build_deps=(core/patchelf)
 pkg_bin_dirs=(bin)
+
+pkg_binds=(
+  [pd]="client-port"
+)
 
 # pkg_exports=(
 #   [client-port]=client-port
@@ -37,8 +43,8 @@ do_prepare() {
 
 do_build() {
   # Update glibc path for tidb-ctl
-  attach
-  patchelf --interpreter "$(pkg_path_for glibc)/lib64/ld-linux-x86-64.so.2" ./tidb-ctl
+  # except this doesn't seem to work... https://github.com/NixOS/patchelf/pull/149 ?
+  # patchelf --interpreter "$(pkg_path_for glibc)/lib64/ld-linux-x86-64.so.2" ./tidb-ctl
   return 0
 }
 

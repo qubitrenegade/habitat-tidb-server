@@ -1,9 +1,9 @@
 # TiDB storage path. 
 path = """ 
 {{ #eachAlive bind.pd.members as |member| }}
-  "{{member.sys.ip}}:{{member.cfg.client-port~}}"{{#unless @last}},{{/unless~}}
-  {{/eachAlive}}
+  {{member.sys.ip}}:{{member.cfg.client-port~}}{{#unless @last}},{{/unless~}}
+{{/eachAlive}}
 """
 
 # Rendered default.toml
-{{toToml cfg}}
+{{toToml cfg.root}}
