@@ -6,6 +6,7 @@ path = "
 "
 
 # Rendered default.toml
+port = {{cfg.port}}
 {{toToml cfg.root}}
 
 [log]

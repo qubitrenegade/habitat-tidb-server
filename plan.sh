@@ -15,12 +15,11 @@ pkg_binds=(
   [pd]="client-port"
 )
 
-# pkg_exports=(
-#   [client-port]=client-port
-#   [peer-port]=peer-port
-# )
+pkg_exports=(
+  [client-port]=port
+)
 
-# pkg_exposes=(client-port peer-port)
+pkg_exposes=(port)
 
 # Optional.
 # pkg_svc_user="hab"

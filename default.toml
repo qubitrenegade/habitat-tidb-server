@@ -1,3 +1,6 @@
+# TiDB server port.
+port = 4000
+
 [root]
 # TiDB Configuration.
 
@@ -6,9 +9,6 @@ host = "0.0.0.0"
 
 # tidb server advertise IP.
 advertise-address = ""
-
-# TiDB server port.
-port = 4000
 
 # Registered store name, [tikv, mocktikv]
 store = "tikv"
