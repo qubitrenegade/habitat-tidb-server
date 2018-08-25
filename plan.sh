@@ -16,7 +16,7 @@ pkg_binds=(
 )
 
 pkg_exports=(
-  [client-port]=port
+  [port]=port
 )
 
 pkg_exposes=(port)
