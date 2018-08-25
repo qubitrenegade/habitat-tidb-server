@@ -1,9 +1,48 @@
 # TiDB storage path. 
-path = """ 
-{{ #eachAlive bind.pd.members as |member| }}
-  {{member.sys.ip}}:{{member.cfg.client-port~}}{{#unless @last}},{{/unless~}}
-{{/eachAlive}}
-"""
+path = "
+{{~ #eachAlive bind.pd.members as |member| ~}}
+  {{~member.sys.ip}}:{{member.cfg.client-port~}}{{#unless @last}},{{/unless~}}
+{{~/eachAlive~}}
+"
 
 # Rendered default.toml
 {{toToml cfg.root}}
+
+[log]
+{{toToml cfg.log}}
+
+[log.file]
+{{toToml cfg.log-file}}
+
+[security]
+{{toToml cfg.security}}
+
+[status]
+{{toToml cfg.status}}
+
+[performance]
+{{toToml cfg.performance}}
+
+[proxy-protocol]
+{{toToml cfg.proxy-protocol}}
+
+[prepared-plan-cache]
+{{toToml cfg.prepared-plan-cache}}
+
+[opentracing]
+{{toToml cfg.opentracing}}
+
+[opentracing.sampler]
+{{toToml cfg.opentracing-sampler}}
+
+[opentracing.reporter]
+{{toToml cfg.opentracing-reporter}}
+
+[tikv-client]
+{{toToml cfg.tikv-client}}
+
+[txn-local-latches]
+{{toToml cfg.txn-local-latches}}
+
+[binlog]
+{{toToml cfg.binlog}}

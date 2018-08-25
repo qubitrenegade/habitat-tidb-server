@@ -69,7 +69,7 @@ expensive-threshold = 10000
 query-log-max-len = 2048
 
 # File logging.
-[log.file]
+[log-file]
 # Log file name.
 filename = ""
 
@@ -164,7 +164,7 @@ enable = false
 # Whether to enable the rpc metrics.
 rpc-metrics = false
 
-[opentracing.sampler]
+[opentracing-sampler]
 # Type specifies the type of the sampler: const, probabilistic, rateLimiting, or remote
 type = "const"
 
@@ -190,7 +190,7 @@ max-operations = 0
 # jaeger-agent for the appropriate sampling strategy.
 sampling-refresh-interval = 0
 
-[opentracing.reporter]
+[opentracing-reporter]
 # QueueSize controls how many spans the reporter can keep in memory before it starts dropping
 # new spans. The queue is continuously drained by a background go-routine, as fast as spans
 # can be sent out of process.

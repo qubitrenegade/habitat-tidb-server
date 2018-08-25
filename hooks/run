@@ -1,4 +1,4 @@
 #!{{pkgPathFor "core/bash"}}/bin/bash
 
-exec tidb-server --log-file={{pkg.svc_var_path}}/tidb.log \
-  --config {{pkg.svc_config_path}}/tidb.toml
+exec 2>&1
+exec tidb-server --config {{pkg.svc_config_path}}/tidb.toml
